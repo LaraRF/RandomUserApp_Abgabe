@@ -1,0 +1,73 @@
+<resources>
+    <string name="app_name">RandomUserApp</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">User List</string>
+    <string name="second_fragment_label">User Details</string>
+    <string name="camera_fragment_label">Camera / AR</string>
+    <string name="settings_fragment_label">Settings</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <!-- Content strings -->
+    <string name="empty_state_message">No users found.\nPull down to refresh or check settings.</string>
+    <string name="open_camera">Open Camera</string>
+    <string name="profile_picture">Profile Picture</string>
+    <string name="manually_created_user">Manually Created User</string>
+    <string name="more_options">More Options</string>
+
+    <!-- Menu items -->
+    <string name="action_sort_name">Sort by Name</string>
+    <string name="action_sort_date">Sort by Date</string>
+    <string name="action_refresh">Refresh</string>
+    <string name="action_search">Search</string>
+
+    <!-- Kamera-spezifische Strings -->
+    <string name="back">Back</string>
+    <string name="capture_photo">Capture Photo</string>
+    <string name="switch_camera">Switch Camera</string>
+    <string name="toggle_flash">Toggle Flash</string>
+    <string name="show_ar">Show AR</string>
+    <string name="hide_ar">Hide AR</string>
+    <string name="camera_permission_required">Camera permission is required for this feature</string>
+    <string name="camera_error">Camera error occurred</string>
+    <string name="photo_captured">Photo captured successfully</string>
+
+    <!-- AR Overlay -->
+    <string name="ar_user_detected">User detected</string>
+    <string name="ar_no_user">No user detected</string>
+
+    <!-- Camera Menu -->
+    <string name="camera_settings">Camera Settings</string>
+    <string name="toggle_grid">Toggle Grid</string>
+    <string name="gallery">Gallery</string>
+
+    <string name="lorem_ipsum">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
+        volutpat, dolor id interdum ullamcorper, risus dolor egestas lectus, sit amet mattis purus
+        dui nec risus. Maecenas non sodales nisi, vel dictum dolor. Class aptent taciti sociosqu ad
+        litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse blandit eleifend
+        diam, vel rutrum tellus vulputate quis. Aliquam eget libero aliquet, imperdiet nisl a,
+        ornare ex. Sed rhoncus est ut libero porta lobortis. Fusce in dictum tellus.\n\n
+        Suspendisse interdum ornare ante. Aliquam nec cursus lorem. Morbi id magna felis. Vivamus
+        egestas, est a condimentum egestas, turpis nisl iaculis ipsum, in dictum tellus dolor sed
+        nunc. Morbi tellus erat, dapibus ut sem a, iaculis tincidunt dui. Interdum et malesuada
+        fames ac ante ipsum primis in faucibus. Curabitur ullamcorper ultricies nisi. Nam eget dui
+        vel purus aliquet mattis eget vel quam. Mauris vulputate, nisl sit amet malesuada mollis,
+        sem lacus finibus tortor, in lobortis lorem eros a tellus.\n\n
+        Pellentesque et lacinia lorem. Quisque cursus ante tempor pretium tincidunt. Nulla gravida
+        turpis a tellus consectetur, vel eleifend ex cursus. Sed in sodales est. Mauris accumsan
+        lacus est, quis aliquam nunc congue rutrum. Integer gravida nunc felis, at dapibus elit
+        hendrerit ac. Pellentesque eleifend arcu vitae magna molestie, nec volutpat magna egestas.
+        Sed interdum mauris dui, vel rhoncus lacus condimentum ut. Nulla facilisi. Pellentesque eu
+        lacus arcu. Fusce eu feugiat neque, id varius tellus. Morbi varius et risus et eleifend.
+        Quisque id ante ut nulla molestie iaculis.\n\n
+        Mauris porta, mauris et rhoncus gravida, nisl nisl gravida nisl, et ullamcorper nisl nisl
+        sit amet lorem. Vivamus convallis hendrerit lorem, vel rhoncus nisl tincidunt id. Sed mauris
+        magna, cursus in convallis quis, lobortis ut lorem. Nam at lorem faucibus, cursus mauris
+        non, suscipit magna. Sed consectetur lorem quis ipsum convallis, vitae consequat lorem
+        consectetur. Sed rhoncus lorem vel lacus mattis, sit amet rutrum lorem cursus. Mauris
+        consectetur lorem quis ipsum convallis, vitae consequat lorem consectetur.
+    </string>
+</resources>

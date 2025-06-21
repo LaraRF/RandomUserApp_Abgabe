@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_camera_settings"
+        android:icon="@drawable/ic_camera_settings_24"
+        android:title="Camera Settings"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_toggle_grid"
+        android:icon="@drawable/ic_grid_24"
+        android:title="Toggle Grid"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_gallery"
+        android:icon="@drawable/ic_gallery_24"
+        android:title="Gallery"
+        app:showAsAction="ifRoom" />
+
+</menu>
