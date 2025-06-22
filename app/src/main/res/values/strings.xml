@@ -162,4 +162,54 @@
         consectetur. Sed rhoncus lorem vel lacus mattis, sit amet rutrum lorem cursus. Mauris
         consectetur lorem quis ipsum convallis, vitae consequat lorem consectetur.
     </string>
+
+    <!-- About App Description  -->
+    <string name="about_app_description">Version: 1.0.0\n\nThis app demonstrates modern Android development practices including:\n• Random User API integration\n• Local SQLite database\n• Camera &amp; AR functionality\n• Material Design 3\n\nDeveloped for SRH Hochschule Heidelberg\nVR, AR and Mobile Development Course\n\n© 2025 RandomUserApp - Lara Friedrich</string>
+
+    <!-- GitHub Repository URL  -->
+    <string name="github_repository_url">https://github.com/LaraRF/RandomUserApp_Abgabe</string>
+
+    <!-- Strings für Manual User Creation -->
+    <string name="add_user">Add User</string>
+    <string name="add_new_user">Add New User</string>
+    <string name="personal_information">Personal Information</string>
+    <string name="address_information_optional">Address Information (Optional)</string>
+    <string name="first_name_required">First Name *</string>
+    <string name="last_name_required">Last Name *</string>
+    <string name="email_required">Email *</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="date_of_birth_hint">Date of Birth (e.g. Jan 15, 1990)</string>
+    <string name="gender">Gender</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="country">Country</string>
+    <string name="city">City</string>
+    <string name="street_address">Street Address</string>
+    <string name="save_user">Save User</string>
+    <string name="cancel">Cancel</string>
+    <string name="clear_form">Clear Form</string>
+
+    <!-- Sortierungsoptionen -->
+    <string name="action_sort_date_of_birth">Sort by Date of Birth</string>
+
+    <!-- Fehlermeldungen -->
+    <string name="error_required_fields">Please fill in required fields</string>
+    <string name="error_invalid_email">Please enter a valid email address</string>
+    <string name="error_invalid_number">Please enter a valid number</string>
+    <string name="error_number_range">Please enter a number between 1 and 50</string>
+
+    <!-- Toast Messages -->
+    <string name="toast_user_created">User created successfully</string>
+    <string name="toast_feature_not_available">Feature currently not available</string>
+
+    <!-- Fill Database Dialog -->
+    <string name="dialog_fill_database_hint">Number of users (1-50)</string>
+    <string name="button_add_users">Add Users</string>
+
+    <!-- QR Code -->
+    <string name="qr_code_title">QR Code</string>
+    <string name="share_qr_code">Share QR Code</string>
+    <string name="close">Close</string>
+    <string name="share">Share</string>
+
 </resources>

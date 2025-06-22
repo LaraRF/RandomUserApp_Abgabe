@@ -36,6 +36,14 @@
             app:popEnterAnim="@android:anim/slide_in_left"
             app:popExitAnim="@android:anim/slide_out_right" />
 
+        <action
+            android:id="@+id/action_FirstFragment_to_AddUserFragment"
+            app:destination="@id/AddUserFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
+
     </fragment>
 
     <fragment
@@ -107,5 +115,20 @@
             app:exitAnim="@android:anim/fade_out" />
 
     </fragment>
+
+    <fragment
+        android:id="@+id/AddUserFragment"
+        android:name="com.srh.randomuserapp.ui.fragments.AddUserFragment"
+        android:label="@string/add_new_user"
+        tools:layout="@layout/fragment_add_user">
+
+        <action
+            android:id="@+id/action_AddUserFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment"
+            app:popUpTo="@id/FirstFragment"
+            app:popUpToInclusive="false" />
+
+    </fragment>
+
 
 </navigation>

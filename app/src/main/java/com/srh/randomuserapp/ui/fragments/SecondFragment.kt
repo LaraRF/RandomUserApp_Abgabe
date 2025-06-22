@@ -1,7 +1,12 @@
 package com.srh.randomuserapp.ui.fragments
 
+import android.content.Intent
+import android.graphics.Bitmap
 import android.os.Bundle
 import android.view.*
+import android.widget.ImageView
+import android.widget.Toast
+import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -9,10 +14,13 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.srh.randomuserapp.R
 import com.srh.randomuserapp.databinding.FragmentSecondBinding
 import com.srh.randomuserapp.ui.viewmodels.UserDetailViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import java.io.File
+import java.io.FileOutputStream
 
 /**
  * Fragment displaying detailed information about a specific user.
@@ -72,6 +80,65 @@ class SecondFragment : Fragment() {
                 binding.textViewError.visibility = View.VISIBLE
             }
         })
+
+        viewModel.qrCodeBitmap.observe(viewLifecycleOwner, Observer { bitmap ->
+            bitmap?.let {
+                showQrCodeDialog(it)
+            }
+        })
+    }
+
+    /**
+     * Show QR code in a dialog
+     */
+    private fun showQrCodeDialog(bitmap: Bitmap) {
+        val imageView = ImageView(requireContext()).apply {
+            setImageBitmap(bitmap)
+            layoutParams = ViewGroup.LayoutParams(
+                (300 * resources.displayMetrics.density).toInt(),
+                (300 * resources.displayMetrics.density).toInt()
+            )
+            scaleType = ImageView.ScaleType.FIT_CENTER
+        }
+
+        MaterialAlertDialogBuilder(requireContext())
+            .setTitle("QR Code")
+            .setView(imageView)
+            .setPositiveButton("Close", null)
+            .setNeutralButton("Share") { _, _ ->
+                shareQrCode(bitmap)
+            }
+            .show()
+    }
+
+    /**
+     * Share QR code bitmap
+     */
+    private fun shareQrCode(bitmap: Bitmap) {
+        try {
+            val cachePath = File(requireContext().cacheDir, "images")
+            cachePath.mkdirs()
+            val file = File(cachePath, "qr_code.png")
+            val fileOutputStream = FileOutputStream(file)
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, fileOutputStream)
+            fileOutputStream.close()
+
+            val contentUri = FileProvider.getUriForFile(
+                requireContext(),
+                "${requireContext().packageName}.fileprovider",
+                file
+            )
+
+            val shareIntent = Intent(Intent.ACTION_SEND).apply {
+                type = "image/png"
+                putExtra(Intent.EXTRA_STREAM, contentUri)
+                addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+            }
+
+            startActivity(Intent.createChooser(shareIntent, "Share QR Code"))
+        } catch (e: Exception) {
+            Toast.makeText(context, "Failed to share QR code", Toast.LENGTH_SHORT).show()
+        }
     }
 
     /**

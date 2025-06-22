@@ -4,6 +4,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.*
+import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
@@ -145,14 +146,28 @@ class SettingsFragment : Fragment() {
      * Show dialog for filling database with random users
      */
     private fun showFillDatabaseDialog() {
-        val options = arrayOf("10 Users", "25 Users", "50 Users", "100 Users")
-        val counts = arrayOf(10, 25, 50, 100)
+        val dialogView = layoutInflater.inflate(R.layout.dialog_fill_database, null)
+        val editTextCount = dialogView.findViewById<EditText>(R.id.editTextUserCount)
 
         MaterialAlertDialogBuilder(requireContext())
             .setTitle("Fill Database")
-            .setMessage("How many random users would you like to add?")
-            .setItems(options) { _, which ->
-                viewModel.fillDatabaseWithRandomUsers(counts[which])
+            .setMessage("How many random users would you like to add? (1-50)")
+            .setView(dialogView)
+            .setPositiveButton("Add Users") { _, _ ->
+                val countText = editTextCount.text.toString()
+                val count = countText.toIntOrNull()
+
+                when {
+                    count == null -> {
+                        Toast.makeText(context, "Please enter a valid number", Toast.LENGTH_SHORT).show()
+                    }
+                    count < 1 || count > 50 -> {
+                        Toast.makeText(context, "Please enter a number between 1 and 50", Toast.LENGTH_SHORT).show()
+                    }
+                    else -> {
+                        viewModel.fillDatabaseWithRandomUsers(count)
+                    }
+                }
             }
             .setNegativeButton("Cancel", null)
             .show()
@@ -260,30 +275,24 @@ class SettingsFragment : Fragment() {
                 • Material Design 3
                 
                 Developed for SRH Hochschule Heidelberg
-                Mobile Application Development Course
+                VR, AR and Mobile Development Course
                 
-                © 2025 RandomUserApp Team
+                © 2025 RandomUserApp - Lara Friedrich
             """.trimIndent())
             .setPositiveButton("OK", null)
             .setNeutralButton("View Source") { _, _ ->
-                // Open GitHub or similar
-                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/your-repo"))
+                // Open GitHub
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/LaraRF/RandomUserApp_Abgabe"))
                 startActivity(intent)
             }
             .show()
     }
 
     /**
-     * Open Play Store for rating
+     * Open Play Store for rating - Now shows feature not available message
      */
     private fun openPlayStore() {
-        try {
-            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=${requireContext().packageName}"))
-            startActivity(intent)
-        } catch (e: Exception) {
-            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=${requireContext().packageName}"))
-            startActivity(intent)
-        }
+        Toast.makeText(context, "Feature currently not available", Toast.LENGTH_SHORT).show()
     }
 
     /**

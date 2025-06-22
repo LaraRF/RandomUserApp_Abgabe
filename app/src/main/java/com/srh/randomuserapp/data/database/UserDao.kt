@@ -26,6 +26,13 @@ interface UserDao {
     fun getAllUsersSortedByName(): Flow<List<User>>
 
     /**
+     * Get all users sorted by date of birth
+     * @return Flow of user list sorted by date of birth
+     */
+    @Query("SELECT * FROM users ORDER BY dateOfBirth ASC")
+    fun getAllUsersSortedByDateOfBirth(): Flow<List<User>>
+
+    /**
      * Get all users sorted by creation date (newest first)
      * @return Flow of user list sorted by date
      */

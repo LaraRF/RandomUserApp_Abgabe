@@ -2,6 +2,7 @@ package com.srh.randomuserapp.ui.fragments
 
 import android.os.Bundle
 import android.view.*
+import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -133,6 +134,15 @@ class FirstFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
+            R.id.action_add_user -> {
+                try {
+                    findNavController().navigate(R.id.action_FirstFragment_to_AddUserFragment)
+                } catch (e: Exception) {
+                    // Fallback if AddUserFragment doesn't exist yet
+                    Toast.makeText(context, "Add user feature coming soon", Toast.LENGTH_SHORT).show()
+                }
+                true
+            }
             R.id.action_settings -> {
                 try {
                     findNavController().navigate(R.id.action_FirstFragment_to_SettingsFragment)
@@ -148,6 +158,10 @@ class FirstFragment : Fragment() {
             }
             R.id.action_sort_date -> {
                 viewModel.setSortOrder(UserListViewModel.SortOrder.DATE_CREATED)
+                true
+            }
+            R.id.action_sort_date_of_birth -> {
+                viewModel.setSortOrder(UserListViewModel.SortOrder.DATE_OF_BIRTH)
                 true
             }
             R.id.action_refresh -> {

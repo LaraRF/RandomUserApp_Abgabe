@@ -135,4 +135,50 @@
     <string name="content_desc_switch_camera">Kamera wechseln</string>
     <string name="content_desc_toggle_flash">Blitz umschalten</string>
 
+    <!-- About App Description - Deutsche Version -->
+    <string name="about_app_description">Version: 1.0.0\n\nDiese App demonstriert moderne Android-Entwicklungspraktiken einschließlich:\n• Random User API Integration\n• Lokale SQLite Datenbank\n• Kamera- &amp; AR-Funktionalität\n• Material Design 3\n\nEntwickelt für SRH Hochschule Heidelberg\nKurs: VR, AR und Mobile Development\n\n© 2025 RandomUserApp - Lara Friedrich</string>
+
+    <!-- Neue Strings für Manual User Creation -->
+    <string name="add_user">Benutzer hinzufügen</string>
+    <string name="add_new_user">Neuen Benutzer hinzufügen</string>
+    <string name="personal_information">Persönliche Informationen</string>
+    <string name="address_information_optional">Adressinformationen (Optional)</string>
+    <string name="first_name_required">Vorname *</string>
+    <string name="last_name_required">Nachname *</string>
+    <string name="email_required">E-Mail *</string>
+    <string name="phone_number">Telefonnummer</string>
+    <string name="date_of_birth_hint">Geburtsdatum (z.B. 15. Jan 1990)</string>
+    <string name="gender">Geschlecht</string>
+    <string name="male">Männlich</string>
+    <string name="female">Weiblich</string>
+    <string name="country">Land</string>
+    <string name="city">Stadt</string>
+    <string name="street_address">Straßenadresse</string>
+    <string name="save_user">Benutzer speichern</string>
+    <string name="cancel">Abbrechen</string>
+    <string name="clear_form">Formular leeren</string>
+
+    <!-- Sortierungsoptionen -->
+    <string name="action_sort_date_of_birth">Nach Geburtsdatum sortieren</string>
+
+    <!-- Fehlermeldungen -->
+    <string name="error_required_fields">Bitte füllen Sie die Pflichtfelder aus</string>
+    <string name="error_invalid_email">Bitte geben Sie eine gültige E-Mail-Adresse ein</string>
+    <string name="error_invalid_number">Bitte geben Sie eine gültige Zahl ein</string>
+    <string name="error_number_range">Bitte geben Sie eine Zahl zwischen 1 und 50 ein</string>
+
+    <!-- Toast Messages -->
+    <string name="toast_user_created">Benutzer erfolgreich erstellt</string>
+    <string name="toast_feature_not_available">Funktion derzeit nicht verfügbar</string>
+
+    <!-- Fill Database Dialog -->
+    <string name="dialog_fill_database_hint">Anzahl Benutzer (1-50)</string>
+    <string name="button_add_users">Benutzer hinzufügen</string>
+
+    <!-- QR Code -->
+    <string name="qr_code_title">QR-Code</string>
+    <string name="share_qr_code">QR-Code teilen</string>
+    <string name="close">Schließen</string>
+    <string name="share">Teilen</string>
+
 </resources>
