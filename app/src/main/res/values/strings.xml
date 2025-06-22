@@ -20,10 +20,21 @@
     <!-- Menu items -->
     <string name="action_sort_name">Sort by Name</string>
     <string name="action_sort_date">Sort by Date</string>
+    <string name="action_sort_email">Sort by Email</string>
+    <string name="action_sort_country">Sort by Country</string>
     <string name="action_refresh">Refresh</string>
     <string name="action_search">Search</string>
+    <string name="action_filter">Filter</string>
+    <string name="action_clear_filters">Clear Filters</string>
 
-    <!-- Kamera-spezifische Strings -->
+    <!-- Filter options -->
+    <string name="filter_all">All Users</string>
+    <string name="filter_api_only">API Users Only</string>
+    <string name="filter_manual_only">Manual Users Only</string>
+    <string name="filter_by_gender">Filter by Gender</string>
+    <string name="filter_by_country">Filter by Country</string>
+
+    <!-- Camera specific strings -->
     <string name="back">Back</string>
     <string name="capture_photo">Capture Photo</string>
     <string name="switch_camera">Switch Camera</string>
@@ -38,10 +49,91 @@
     <string name="ar_user_detected">User detected</string>
     <string name="ar_no_user">No user detected</string>
 
+    <!-- Settings strings -->
+    <string name="settings_statistics">App Statistics</string>
+    <string name="settings_database_management">Database Management</string>
+    <string name="settings_app_preferences">App Preferences</string>
+    <string name="settings_data_management">Data Management</string>
+    <string name="settings_about_support">About &amp; Support</string>
+
+    <string name="settings_fill_database">Fill Database with Random Users</string>
+    <string name="settings_clear_all_users">Clear All Users</string>
+    <string name="settings_clear_api_users">Clear API Users Only</string>
+    <string name="settings_clear_manual_users">Clear Manual Users Only</string>
+
+    <string name="settings_dark_mode">Dark Mode</string>
+    <string name="settings_dark_mode_desc">Switch between light and dark theme</string>
+    <string name="settings_language">Language</string>
+    <string name="settings_notifications">Notifications</string>
+    <string name="settings_notifications_desc">Enable app notifications</string>
+
+    <string name="settings_export_data">Export User Data</string>
+    <string name="settings_import_data">Import User Data</string>
+
+    <string name="settings_about_app">About This App</string>
+    <string name="settings_rate_app">Rate on Play Store</string>
+    <string name="settings_share_app">Share App</string>
+    <string name="settings_reset_settings">Reset Settings</string>
+
+    <!-- Dialog strings -->
+    <string name="dialog_fill_database_title">Fill Database</string>
+    <string name="dialog_fill_database_message">How many random users would you like to add?</string>
+    <string name="dialog_clear_all_title">Clear All Users</string>
+    <string name="dialog_clear_all_message">This will permanently delete all users from the database. This action cannot be undone.</string>
+    <string name="dialog_clear_api_title">Clear API Users</string>
+    <string name="dialog_clear_api_message">This will delete all users fetched from the Random User API.</string>
+    <string name="dialog_clear_manual_title">Clear Manual Users</string>
+    <string name="dialog_clear_manual_message">This will delete all manually created users.</string>
+    <string name="dialog_reset_settings_title">Reset Settings</string>
+    <string name="dialog_reset_settings_message">This will reset all app settings to their default values.</string>
+
+    <string name="button_delete_all">Delete All</string>
+    <string name="button_delete">Delete</string>
+    <string name="button_reset">Reset</string>
+    <string name="button_cancel">Cancel</string>
+    <string name="button_ok">OK</string>
+
+    <!-- Toast messages -->
+    <string name="toast_users_added">Successfully added %d users to database</string>
+    <string name="toast_all_users_deleted">All users deleted successfully</string>
+    <string name="toast_api_users_deleted">API users deleted successfully</string>
+    <string name="toast_manual_users_deleted">Manual users deleted successfully</string>
+    <string name="toast_settings_reset">Settings reset to defaults</string>
+    <string name="toast_export_success">Data exported successfully</string>
+    <string name="toast_import_success">Data imported successfully</string>
+    <string name="toast_feature_coming_soon">Feature coming soon</string>
+
+    <!-- Error messages -->
+    <string name="error_failed_to_fetch_users">Failed to fetch users</string>
+    <string name="error_failed_to_delete_users">Failed to delete users</string>
+    <string name="error_failed_to_load_user">Failed to load user</string>
+    <string name="error_failed_to_export_data">Failed to export data</string>
+    <string name="error_failed_to_import_data">Failed to import data</string>
+    <string name="error_user_not_found">User not found</string>
+    <string name="error_camera_permission_denied">Camera permission denied</string>
+    <string name="error_camera_not_available">Camera not available</string>
+
+    <!-- Search hints -->
+    <string name="search_hint">Search by name, email, or location</string>
+    <string name="search_advanced_hint">Use advanced filters for better results</string>
+
+    <!-- Statistics labels -->
+    <string name="stats_total_users">Total Users: %d</string>
+    <string name="stats_api_users">API Users: %d</string>
+    <string name="stats_manual_users">Manual Users: %d</string>
+    <string name="stats_database_size">Database Size: %s MB</string>
+
     <!-- Camera Menu -->
     <string name="camera_settings">Camera Settings</string>
     <string name="toggle_grid">Toggle Grid</string>
     <string name="gallery">Gallery</string>
+
+    <!-- Accessibility -->
+    <string name="content_desc_user_profile">User profile for %s</string>
+    <string name="content_desc_qr_code">QR code for user %s</string>
+    <string name="content_desc_camera_capture">Capture photo</string>
+    <string name="content_desc_switch_camera">Switch camera</string>
+    <string name="content_desc_toggle_flash">Toggle flash</string>
 
     <string name="lorem_ipsum">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris

@@ -138,7 +138,7 @@ class FirstFragment : Fragment() {
                     findNavController().navigate(R.id.action_FirstFragment_to_SettingsFragment)
                 } catch (e: Exception) {
                     // Fallback if settings fragment doesn't exist yet
-                    findNavController().navigate(R.id.SettingsFragment)
+                    //findNavController().navigate(R.id.SettingsFragment)
                 }
                 true
             }

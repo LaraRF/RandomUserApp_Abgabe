@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Override colors for dark theme -->
+    <color name="surface_color">#1E1E1E</color>
+    <color name="on_surface_color">#FFFFFF</color>
+    <color name="background_color">#121212</color>
+    <color name="on_background_color">#FFFFFF</color>
+
+    <!-- Text Colors for Dark Theme -->
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#B3B3B3</color>
+    <color name="text_hint">#666666</color>
+    <color name="text_disabled">#444444</color>
+
+    <!-- Card and Surface Colors for Dark Theme -->
+    <color name="card_background">#2D2D2D</color>
+    <color name="elevated_surface">#2D2D2D</color>
+
+    <!-- Divider and Border Colors for Dark Theme -->
+    <color name="divider_color">#333333</color>
+    <color name="border_color">#444444</color>
+
+    <!-- Camera Colors for Dark Theme -->
+    <color name="camera_controls_background">#DD000000</color>
+    <color name="camera_button_background">#888888</color>
+
+    <!-- Special adjustments for dark theme -->
+    <color name="ripple_color">#1FBB86FC</color>
+    <color name="touch_highlight">#0FBB86FC</color>
+</resources>

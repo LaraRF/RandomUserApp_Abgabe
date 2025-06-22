@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Primary Colors -->
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
@@ -7,18 +8,69 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- App Theme Colors -->
     <color name="primary_color">#6200EE</color>
     <color name="primary_color_dark">#3700B3</color>
+    <color name="primary_color_light">#BB86FC</color>
     <color name="accent_color">#03DAC5</color>
+    <color name="accent_color_dark">#018786</color>
 
-    <!-- Kamera-spezifische Farben -->
+    <!-- Camera-specific Colors -->
     <color name="camera_controls_background">#AA000000</color>
     <color name="camera_button_background">#666666</color>
     <color name="ar_overlay_background">#CC000000</color>
     <color name="ar_text_color">#FFFFFF</color>
 
-    <!-- UI Farben -->
+    <!-- UI Colors -->
     <color name="surface_color">#FFFFFF</color>
     <color name="on_surface_color">#000000</color>
     <color name="background_color">#FAFAFA</color>
+    <color name="on_background_color">#000000</color>
+
+    <!-- Status Colors -->
+    <color name="success_color">#4CAF50</color>
+    <color name="warning_color">#FF9800</color>
+    <color name="error_color">#F44336</color>
+    <color name="info_color">#2196F3</color>
+
+    <!-- Text Colors -->
+    <color name="text_primary">#000000</color>
+    <color name="text_secondary">#757575</color>
+    <color name="text_hint">#BDBDBD</color>
+    <color name="text_disabled">#E0E0E0</color>
+
+    <!-- Divider and Border Colors -->
+    <color name="divider_color">#E0E0E0</color>
+    <color name="border_color">#CCCCCC</color>
+
+    <!-- Card and Surface Colors -->
+    <color name="card_background">#FFFFFF</color>
+    <color name="elevated_surface">#FFFFFF</color>
+
+    <!-- Dark Theme Colors (Night Mode) -->
+    <color name="dark_primary_color">#BB86FC</color>
+    <color name="dark_primary_variant">#3700B3</color>
+    <color name="dark_secondary_color">#03DAC6</color>
+    <color name="dark_background">#121212</color>
+    <color name="dark_surface">#1E1E1E</color>
+    <color name="dark_on_primary">#000000</color>
+    <color name="dark_on_secondary">#000000</color>
+    <color name="dark_on_background">#FFFFFF</color>
+    <color name="dark_on_surface">#FFFFFF</color>
+
+    <!-- Special Colors for Features -->
+    <color name="qr_code_foreground">#000000</color>
+    <color name="qr_code_background">#FFFFFF</color>
+    <color name="manual_user_indicator">#FF6200EE</color>
+    <color name="api_user_indicator">#FF03DAC5</color>
+
+    <!-- Ripple and Touch Effects -->
+    <color name="ripple_color">#1F6200EE</color>
+    <color name="touch_highlight">#0F6200EE</color>
+
+    <!-- Transparent Colors -->
+    <color name="transparent">#00000000</color>
+    <color name="semi_transparent_black">#80000000</color>
+    <color name="semi_transparent_white">#80FFFFFF</color>
 </resources>

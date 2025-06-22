@@ -26,7 +26,14 @@ class UserListViewModel @Inject constructor(
      * Enum for different sort orders
      */
     enum class SortOrder {
-        NAME, DATE_CREATED
+        NAME, DATE_CREATED, EMAIL, COUNTRY
+    }
+
+    /**
+     * Enum for filter types
+     */
+    enum class FilterType {
+        ALL, API_ONLY, MANUAL_ONLY
     }
 
     // Private mutable state
@@ -34,27 +41,37 @@ class UserListViewModel @Inject constructor(
     private val _isLoading = MutableLiveData<Boolean>(false)
     private val _errorMessage = MutableLiveData<String?>()
     private val _searchQuery = MutableLiveData<String>("")
+    private val _filterType = MutableLiveData<FilterType>(FilterType.ALL)
 
     // Public exposed state
     val sortOrder: LiveData<SortOrder> = _sortOrder
     val isLoading: LiveData<Boolean> = _isLoading
     val errorMessage: LiveData<String?> = _errorMessage
     val searchQuery: LiveData<String> = _searchQuery
+    val filterType: LiveData<FilterType> = _filterType
 
     /**
      * Users based on sort order and search query
      */
     val users: LiveData<List<User>> = _sortOrder.switchMap { sortOrder ->
         _searchQuery.switchMap { searchQuery ->
-            when {
-                !searchQuery.isNullOrBlank() -> {
-                    userRepository.searchUsersByName(searchQuery).asLiveData()
-                }
-                sortOrder == SortOrder.NAME -> {
-                    userRepository.getAllUsersSortedByName().asLiveData()
-                }
-                else -> {
-                    userRepository.getAllUsersSortedByDate().asLiveData()
+            _filterType.switchMap { filterType ->
+                when {
+                    !searchQuery.isNullOrBlank() -> {
+                        userRepository.searchUsersByName(searchQuery).asLiveData()
+                    }
+                    filterType == FilterType.API_ONLY -> {
+                        userRepository.getUsersByCreationType(false).asLiveData()
+                    }
+                    filterType == FilterType.MANUAL_ONLY -> {
+                        userRepository.getUsersByCreationType(true).asLiveData()
+                    }
+                    sortOrder == SortOrder.NAME -> {
+                        userRepository.getAllUsersSortedByName().asLiveData()
+                    }
+                    else -> {
+                        userRepository.getAllUsersSortedByDate().asLiveData()
+                    }
                 }
             }
         }
@@ -67,7 +84,9 @@ class UserListViewModel @Inject constructor(
         val stats = UserStats(
             totalUsers = userList.size,
             apiUsers = userList.count { !it.isManuallyCreated },
-            manualUsers = userList.count { it.isManuallyCreated }
+            manualUsers = userList.count { it.isManuallyCreated },
+            countries = userList.map { it.country }.distinct().sorted(),
+            genders = userList.map { it.gender }.distinct().sorted()
         )
         MutableLiveData(stats)
     }
@@ -94,10 +113,26 @@ class UserListViewModel @Inject constructor(
     }
 
     /**
-     * Clears the current search query
+     * Sets filter type
+     * @param filterType Filter type to apply
+     */
+    fun setFilterType(filterType: FilterType) {
+        _filterType.value = filterType
+    }
+
+    /**
+     * Clears the current search query and filters
      */
     fun clearSearch() {
         _searchQuery.value = ""
+        _filterType.value = FilterType.ALL
+    }
+
+    /**
+     * Clears only filters, keeps search query
+     */
+    fun clearFilters() {
+        _filterType.value = FilterType.ALL
     }
 
     /**
@@ -195,6 +230,8 @@ class UserListViewModel @Inject constructor(
     data class UserStats(
         val totalUsers: Int = 0,
         val apiUsers: Int = 0,
-        val manualUsers: Int = 0
+        val manualUsers: Int = 0,
+        val countries: List<String> = emptyList(),
+        val genders: List<String> = emptyList()
     )
 }

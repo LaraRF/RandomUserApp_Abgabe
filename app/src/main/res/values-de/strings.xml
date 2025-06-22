@@ -1,0 +1,138 @@
+<resources>
+    <string name="app_name">RandomUserApp</string>
+    <string name="action_settings">Einstellungen</string>
+
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">Benutzerliste</string>
+    <string name="second_fragment_label">Benutzerdetails</string>
+    <string name="camera_fragment_label">Kamera / AR</string>
+    <string name="settings_fragment_label">Einstellungen</string>
+    <string name="next">Weiter</string>
+    <string name="previous">Zurück</string>
+
+    <!-- Content strings -->
+    <string name="empty_state_message">Keine Benutzer gefunden.\nZiehen Sie nach unten, um zu aktualisieren, oder prüfen Sie die Einstellungen.</string>
+    <string name="open_camera">Kamera öffnen</string>
+    <string name="profile_picture">Profilbild</string>
+    <string name="manually_created_user">Manuell erstellter Benutzer</string>
+    <string name="more_options">Weitere Optionen</string>
+
+    <!-- Menu items -->
+    <string name="action_sort_name">Nach Name sortieren</string>
+    <string name="action_sort_date">Nach Datum sortieren</string>
+    <string name="action_sort_email">Nach E-Mail sortieren</string>
+    <string name="action_sort_country">Nach Land sortieren</string>
+    <string name="action_refresh">Aktualisieren</string>
+    <string name="action_search">Suchen</string>
+    <string name="action_filter">Filtern</string>
+    <string name="action_clear_filters">Filter löschen</string>
+
+    <!-- Filter options -->
+    <string name="filter_all">Alle Benutzer</string>
+    <string name="filter_api_only">Nur API-Benutzer</string>
+    <string name="filter_manual_only">Nur manuelle Benutzer</string>
+    <string name="filter_by_gender">Nach Geschlecht filtern</string>
+    <string name="filter_by_country">Nach Land filtern</string>
+
+    <!-- Camera specific strings -->
+    <string name="back">Zurück</string>
+    <string name="capture_photo">Foto aufnehmen</string>
+    <string name="switch_camera">Kamera wechseln</string>
+    <string name="toggle_flash">Blitz umschalten</string>
+    <string name="show_ar">AR anzeigen</string>
+    <string name="hide_ar">AR verbergen</string>
+    <string name="camera_permission_required">Kameraberechtigung ist für diese Funktion erforderlich</string>
+    <string name="camera_error">Kamerafehler aufgetreten</string>
+    <string name="photo_captured">Foto erfolgreich aufgenommen</string>
+
+    <!-- AR Overlay -->
+    <string name="ar_user_detected">Benutzer erkannt</string>
+    <string name="ar_no_user">Kein Benutzer erkannt</string>
+
+    <!-- Settings strings -->
+    <string name="settings_statistics">App-Statistiken</string>
+    <string name="settings_database_management">Datenbankverwaltung</string>
+    <string name="settings_app_preferences">App-Einstellungen</string>
+    <string name="settings_data_management">Datenverwaltung</string>
+    <string name="settings_about_support">Über &amp; Support</string>
+
+    <string name="settings_fill_database">Datenbank mit zufälligen Benutzern füllen</string>
+    <string name="settings_clear_all_users">Alle Benutzer löschen</string>
+    <string name="settings_clear_api_users">Nur API-Benutzer löschen</string>
+    <string name="settings_clear_manual_users">Nur manuelle Benutzer löschen</string>
+
+    <string name="settings_dark_mode">Dunkler Modus</string>
+    <string name="settings_dark_mode_desc">Zwischen hellem und dunklem Design wechseln</string>
+    <string name="settings_language">Sprache</string>
+    <string name="settings_notifications">Benachrichtigungen</string>
+    <string name="settings_notifications_desc">App-Benachrichtigungen aktivieren</string>
+
+    <string name="settings_export_data">Benutzerdaten exportieren</string>
+    <string name="settings_import_data">Benutzerdaten importieren</string>
+
+    <string name="settings_about_app">Über diese App</string>
+    <string name="settings_rate_app">Im Play Store bewerten</string>
+    <string name="settings_share_app">App teilen</string>
+    <string name="settings_reset_settings">Einstellungen zurücksetzen</string>
+
+    <!-- Dialog strings -->
+    <string name="dialog_fill_database_title">Datenbank füllen</string>
+    <string name="dialog_fill_database_message">Wie viele zufällige Benutzer möchten Sie hinzufügen?</string>
+    <string name="dialog_clear_all_title">Alle Benutzer löschen</string>
+    <string name="dialog_clear_all_message">Dies wird alle Benutzer dauerhaft aus der Datenbank löschen. Diese Aktion kann nicht rückgängig gemacht werden.</string>
+    <string name="dialog_clear_api_title">API-Benutzer löschen</string>
+    <string name="dialog_clear_api_message">Dies wird alle Benutzer löschen, die von der Random User API abgerufen wurden.</string>
+    <string name="dialog_clear_manual_title">Manuelle Benutzer löschen</string>
+    <string name="dialog_clear_manual_message">Dies wird alle manuell erstellten Benutzer löschen.</string>
+    <string name="dialog_reset_settings_title">Einstellungen zurücksetzen</string>
+    <string name="dialog_reset_settings_message">Dies wird alle App-Einstellungen auf ihre Standardwerte zurücksetzen.</string>
+
+    <string name="button_delete_all">Alle löschen</string>
+    <string name="button_delete">Löschen</string>
+    <string name="button_reset">Zurücksetzen</string>
+    <string name="button_cancel">Abbrechen</string>
+    <string name="button_ok">OK</string>
+
+    <!-- Toast messages -->
+    <string name="toast_users_added">%d Benutzer erfolgreich zur Datenbank hinzugefügt</string>
+    <string name="toast_all_users_deleted">Alle Benutzer erfolgreich gelöscht</string>
+    <string name="toast_api_users_deleted">API-Benutzer erfolgreich gelöscht</string>
+    <string name="toast_manual_users_deleted">Manuelle Benutzer erfolgreich gelöscht</string>
+    <string name="toast_settings_reset">Einstellungen auf Standard zurückgesetzt</string>
+    <string name="toast_export_success">Daten erfolgreich exportiert</string>
+    <string name="toast_import_success">Daten erfolgreich importiert</string>
+    <string name="toast_feature_coming_soon">Funktion kommt bald</string>
+
+    <!-- Error messages -->
+    <string name="error_failed_to_fetch_users">Fehler beim Abrufen der Benutzer</string>
+    <string name="error_failed_to_delete_users">Fehler beim Löschen der Benutzer</string>
+    <string name="error_failed_to_load_user">Fehler beim Laden des Benutzers</string>
+    <string name="error_failed_to_export_data">Fehler beim Exportieren der Daten</string>
+    <string name="error_failed_to_import_data">Fehler beim Importieren der Daten</string>
+    <string name="error_user_not_found">Benutzer nicht gefunden</string>
+    <string name="error_camera_permission_denied">Kameraberechtigung verweigert</string>
+    <string name="error_camera_not_available">Kamera nicht verfügbar</string>
+
+    <!-- Search hints -->
+    <string name="search_hint">Nach Name, E-Mail oder Standort suchen</string>
+    <string name="search_advanced_hint">Verwenden Sie erweiterte Filter für bessere Ergebnisse</string>
+
+    <!-- Statistics labels -->
+    <string name="stats_total_users">Benutzer gesamt: %d</string>
+    <string name="stats_api_users">API-Benutzer: %d</string>
+    <string name="stats_manual_users">Manuelle Benutzer: %d</string>
+    <string name="stats_database_size">Datenbankgröße: %s MB</string>
+
+    <!-- Camera Menu -->
+    <string name="camera_settings">Kameraeinstellungen</string>
+    <string name="toggle_grid">Raster umschalten</string>
+    <string name="gallery">Galerie</string>
+
+    <!-- Accessibility -->
+    <string name="content_desc_user_profile">Benutzerprofil für %s</string>
+    <string name="content_desc_qr_code">QR-Code für Benutzer %s</string>
+    <string name="content_desc_camera_capture">Foto aufnehmen</string>
+    <string name="content_desc_switch_camera">Kamera wechseln</string>
+    <string name="content_desc_toggle_flash">Blitz umschalten</string>
+
+</resources>
