@@ -139,3 +139,4 @@ Dozent: Prof. Dr. Andreas Jäger, Felix Dörschner
 
 Version: 1.0.0
 Letzte Aktualisierung: 23.Juni 2025
+https://github.com/LaraRF/RandomUserApp_Abgabe
