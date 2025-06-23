@@ -125,7 +125,6 @@ class SettingsFragment : Fragment() {
         }
 
         binding.buttonImportData.setOnClickListener {
-            // TODO: Implement data import functionality
             Toast.makeText(context, "Import functionality coming soon", Toast.LENGTH_SHORT).show()
         }
     }
@@ -230,7 +229,7 @@ class SettingsFragment : Fragment() {
     }
 
     /**
-     * Change app language - Version 2
+     * Change app language
      */
     private fun changeLanguage(languageCode: String) {
         viewModel.setLanguage(languageCode)

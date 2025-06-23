@@ -1,7 +1,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Theme.RandomUserApp" parent="Theme.Material3.DayNight">
-        <!-- Customize your theme here. -->
+        <!-- Customized theme  -->
         <item name="colorPrimary">@color/purple_500</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
         <item name="colorOnPrimary">@color/white</item>
@@ -11,7 +11,7 @@
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
+        <!-- Theme customization //TO DO low prio. -->
     </style>
 
     <style name="Theme.RandomUserApp.NoActionBar" parent="Theme.RandomUserApp">

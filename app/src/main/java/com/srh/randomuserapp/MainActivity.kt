@@ -36,8 +36,7 @@ class MainActivity : AppCompatActivity() {
                 appBarConfiguration = AppBarConfiguration(navController.graph)
                 setupActionBarWithNavController(navController, appBarConfiguration)
             } catch (e: IllegalStateException) {
-                // Navigation not yet ready, this is expected during development
-                // The app will still work with basic functionality
+
             }
         }
     }

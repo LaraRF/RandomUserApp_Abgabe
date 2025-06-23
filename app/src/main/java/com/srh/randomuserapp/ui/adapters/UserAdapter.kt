@@ -48,7 +48,7 @@ class UserAdapter(
                 textViewPhone.text = user.phone
                 textViewLocation.text = user.fullAddress
 
-                // Manual creation indicator - ENTFERNT
+                // Manual creation indicator - entfernt (evtl TO DO? Bonus Aufgabe)
                 // if (user.isManuallyCreated) { ... }
 
                 // Load profile image with Glide

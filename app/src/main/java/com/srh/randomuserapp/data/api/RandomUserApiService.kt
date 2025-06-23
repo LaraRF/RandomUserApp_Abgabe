@@ -16,9 +16,9 @@ interface RandomUserApiService {
      *
      * @param results Number of users to fetch (default: 10)
      * @param format Response format (json, xml, csv, yaml)
-     * @param nat Nationality filter (optional)
-     * @param gender Gender filter (male, female)
-     * @param seed Seed for reproducible results (optional)
+     * @param nat Nationality filter (TO DO?)
+     * @param gender Gender filter (male, female, maybe extendable?)
+     * @param seed Seed for reproducible results (TO DO?)
      * @return Response containing list of random users
      */
     @GET("api/")
@@ -34,9 +34,9 @@ interface RandomUserApiService {
      * Fetches a single random user from the API
      *
      * @param format Response format (json, xml, csv, yaml)
-     * @param nat Nationality filter (optional)
+     * @param nat Nationality filter
      * @param gender Gender filter (male, female)
-     * @param seed Seed for reproducible results (optional)
+     * @param seed Seed for reproducible results
      * @return Response containing single random user
      */
     @GET("api/")

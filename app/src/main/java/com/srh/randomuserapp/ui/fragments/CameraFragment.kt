@@ -94,7 +94,7 @@ class CameraFragment : Fragment() {
             toggleFlash()
         }
 
-        // AR overlay toggle - UPDATED
+        // AR overlay toggle
         binding.buttonArOverlay.setOnClickListener {
             toggleArVisibility()
         }
@@ -156,7 +156,7 @@ class CameraFragment : Fragment() {
             .setCaptureMode(ImageCapture.CAPTURE_MODE_MINIMIZE_LATENCY)
             .build()
 
-        // QR Code Analysis - UPDATED
+        // QR Code Analysis
         imageAnalysis = ImageAnalysis.Builder()
             .setBackpressureStrategy(ImageAnalysis.STRATEGY_KEEP_ONLY_LATEST)
             .build()
@@ -179,7 +179,7 @@ class CameraFragment : Fragment() {
     }
 
     /**
-     * Setup QR code analyzer - UPDATED für echte QR-Code Erkennung
+     * Setup QR code analyzer
      */
     private fun setupQRCodeAnalyzer() {
         val qrCodeAnalyzer = ImageAnalysis.Analyzer { imageProxy ->
@@ -283,8 +283,7 @@ class CameraFragment : Fragment() {
     private fun capturePhoto() {
         val imageCapture = imageCapture ?: return
 
-        // For simplicity, we'll just show a toast
-        // In a real app, you'd save the photo and possibly analyze it
+        // For simplicity, it just shows a toast
         Toast.makeText(context, "Photo captured! (Demo mode)", Toast.LENGTH_SHORT).show()
 
         // Animate capture button
@@ -303,8 +302,7 @@ class CameraFragment : Fragment() {
     }
 
     private fun switchCamera() {
-        // This is a simplified implementation
-        // In a real app, you'd switch between front and back cameras
+        // This is a simplified implementation -> switch not implemented
         Toast.makeText(context, "Camera switch (Demo mode)", Toast.LENGTH_SHORT).show()
     }
 

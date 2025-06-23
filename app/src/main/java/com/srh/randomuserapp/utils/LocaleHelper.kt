@@ -8,7 +8,7 @@ import java.util.*
 
 /**
  * Utility class for managing app locale and language settings.
- * Fixed version that properly persists language changes.
+ * Fixed version that properly persists language changes (hopefully? lol).
  */
 object LocaleHelper {
 

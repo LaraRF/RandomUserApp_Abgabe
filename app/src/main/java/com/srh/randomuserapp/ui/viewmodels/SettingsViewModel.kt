@@ -163,13 +163,12 @@ class SettingsViewModel @Inject constructor(
     }
 
     /**
-     * Export user data (simplified implementation)
+     * Export user data (TO DO - super niedrige Prio)
      */
     fun exportUserData() {
         viewModelScope.launch {
             _isLoading.value = true
             try {
-                // TODO: Implement actual data export functionality
                 // For now, just show a success message
                 _message.value = "Export functionality coming soon"
             } catch (e: Exception) {

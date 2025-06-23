@@ -55,7 +55,7 @@ class FirstFragment : Fragment() {
                 val action = FirstFragmentDirections.actionFirstFragmentToSecondFragment(user.id)
                 findNavController().navigate(action)
             } catch (e: Exception) {
-                // Fallback: Create bundle manually if directions don't work yet
+                // Fallback: Create bundle manually if directions don't work
                 val bundle = Bundle().apply {
                     putString("userId", user.id)
                 }
@@ -100,7 +100,7 @@ class FirstFragment : Fragment() {
             try {
                 findNavController().navigate(R.id.action_FirstFragment_to_CameraFragment)
             } catch (e: Exception) {
-                // Fallback if camera fragment doesn't exist yet
+                // Fallback if camera fragment doesn't work
                 findNavController().navigate(R.id.CameraFragment)
             }
         }
@@ -146,7 +146,7 @@ class FirstFragment : Fragment() {
                 try {
                     findNavController().navigate(R.id.action_FirstFragment_to_SettingsFragment)
                 } catch (e: Exception) {
-                    // Fallback if settings fragment doesn't exist yet
+                    // Fallback if settings fragment doesn't work
                 }
                 true
             }
