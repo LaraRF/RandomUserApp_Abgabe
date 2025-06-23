@@ -2,7 +2,7 @@
 
 Eine moderne Android-Anwendung für die Verwaltung von Benutzerdaten mit AR-Integration, entwickelt für den Kurs "VR, AR & Mobile Development" an der SRH Hochschule Heidelberg.
 
-##Features:
+## Features:
 - Random User API Integration (Random User werden von https://randomuser.me/ bezogen) -> automatisches Laden von Zufallspersonen ("Random User")
 - Lokale SQLite Dartenbank -> persistente Datenspeicherung
 - AR/Kamera-Integration -> QR-Code basierte Augmented Reality
@@ -11,14 +11,14 @@ Eine moderne Android-Anwendung für die Verwaltung von Benutzerdaten mit AR-Inte
 - Mehrsprachigkeit -> Standard ist Englisch, Deutsch möglich
 - Dark-Mode -> Theme kann angepasst werden
 
-###Bonus Features:
+### Bonus Features:
 - Dependency Injection -> Architektur mit Hilt
 - Statistiken -> Datenbank-Statistiken einsehbar
 - Settings-Management -> Dankenbank-Verwaltung (gezieltes Leeren und Befüllen) und App-Einstellungen
 - QR-Code 
 
 
-##Architektur
+## Architektur
 
 ┌─────────────────────────────────────────────────────────┐
 │                        UI Layer                         │
@@ -54,7 +54,7 @@ Verwendete Patterns: MVVM, Repository Pattern, Dependency Injection
 •	JDK: Version 11+
 •	Android SDK: Min API 26, Target API 34
 •	Internet-Verbindung: Für API-Calls und Dependency-Download
-###Installation
+### Installation
 1.	Repository klonen:
 2.	git clone https://github.com/your-username/RandomUserApp.git
 3.	cd RandomUserApp
@@ -68,12 +68,12 @@ o	Alle Dependencies werden automatisch heruntergeladen
 6.	App ausführen:
 o	Gerät/Emulator verbinden
 o	Run-Button (▶️) klicken
-###Erstmaliger Build
+### Erstmaliger Build
 ./gradlew clean
 ./gradlew build
 
 
-##Abhängigkeiten
+## Abhängigkeiten
 Core
 •	AndroidX Core, AppCompat, Material Design 3
 •	ConstraintLayout, Navigation Component
@@ -88,7 +88,7 @@ Features
 Alle Versionen siehe app/build.gradle.kts
 
 
-##Projekt-Struktur
+## Projekt-Struktur
 
 app/src/main/
 ├── kotlin/com/srh/randomuserapp/
@@ -113,19 +113,19 @@ app/src/main/
     ├── navigation/          # Navigation Graph
     └── drawable/            # Icons & Images
 
-##Code-Standards
+## Code-Standards
 •	MVVM Architecture: Saubere Trennung der Verantwortlichkeiten
 •	Kotlin Coding Conventions: Offizielle Kotlin-Standards
 •	Material Design Guidelines: Konsistente UI/UX
 •	Single Responsibility Principle: Eine Aufgabe pro Klasse
-##Build-Konfiguration
+## Build-Konfiguration
 •	Min SDK: 26 (Android 8.0)
 •	Target SDK: 34 (Android 14)
 •	Compile SDK: 34
 •	Java Compatibility: Version 1.8
 •	ViewBinding: Aktiviert für type-safe view access
 
-##Verwendung
+## Verwendung
 1. Benutzer-Übersicht
 •	Liste aller Benutzer (API + manuell erstellt)
 •	Suche: Nach Name, E-Mail, Standort
@@ -149,7 +149,7 @@ app/src/main/
 •	Daten-Export: (TODO - in Entwicklung)
 
 
-##API-Dokumentation
+## API-Dokumentation
 RandomUser.me API
 •	Base URL: https://randomuser.me/
 •	Endpoint: GET /api/
@@ -165,7 +165,7 @@ Kamera-Berechtigung:
 •	Manuell: Einstellungen > Apps > RandomUserApp > Berechtigungen
 
 
-##Lizenz
+## Lizenz
 Dieses Projekt wurde für Bildungszwecke an der SRH Hochschule Heidelberg entwickelt.
 Verwendete Open-Source-Bibliotheken:
 •	Alle verwendeten Libraries unterliegen ihren jeweiligen Open-Source-Lizenzen
@@ -176,7 +176,7 @@ Hochschule: SRH Hochschule Heidelberg
 Semester: Sommersemester 2025, 4. Fachsemester
 Dozent: Prof. Dr. Andreas Jäger, Felix Dörschner
 
-##Links
+## Links
 •	RandomUser.me API: https://randomuser.me/
 •	Android Developer Docs: https://developer.android.com/
 •	Material Design: https://material.io/
