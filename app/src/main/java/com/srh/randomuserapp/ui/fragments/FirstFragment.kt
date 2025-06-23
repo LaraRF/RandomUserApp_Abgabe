@@ -138,7 +138,6 @@ class FirstFragment : Fragment() {
                 try {
                     findNavController().navigate(R.id.action_FirstFragment_to_AddUserFragment)
                 } catch (e: Exception) {
-                    // Fallback if AddUserFragment doesn't exist yet
                     Toast.makeText(context, "Add user feature coming soon", Toast.LENGTH_SHORT).show()
                 }
                 true
@@ -148,7 +147,6 @@ class FirstFragment : Fragment() {
                     findNavController().navigate(R.id.action_FirstFragment_to_SettingsFragment)
                 } catch (e: Exception) {
                     // Fallback if settings fragment doesn't exist yet
-                    //findNavController().navigate(R.id.SettingsFragment)
                 }
                 true
             }
@@ -160,8 +158,12 @@ class FirstFragment : Fragment() {
                 viewModel.setSortOrder(UserListViewModel.SortOrder.DATE_CREATED)
                 true
             }
-            R.id.action_sort_date_of_birth -> {
-                viewModel.setSortOrder(UserListViewModel.SortOrder.DATE_OF_BIRTH)
+            R.id.action_sort_birthday_in_year -> {
+                viewModel.setSortOrder(UserListViewModel.SortOrder.BIRTHDAY_IN_YEAR)
+                true
+            }
+            R.id.action_sort_age -> {
+                viewModel.setSortOrder(UserListViewModel.SortOrder.AGE)
                 true
             }
             R.id.action_refresh -> {

@@ -21,6 +21,8 @@ interface UserRepository {
     fun getAllUsersSortedByName(): Flow<List<User>>
     fun getAllUsersSortedByDate(): Flow<List<User>>
     fun getAllUsersSortedByDateOfBirth(): Flow<List<User>>
+    fun getAllUsersSortedByBirthdayInYear(): Flow<List<User>>
+    fun getAllUsersSortedByAge(): Flow<List<User>>
     suspend fun getUserById(userId: String): User?
     suspend fun getUserByQrCode(qrCode: String): User?
     fun getUsersByCreationType(isManual: Boolean): Flow<List<User>>
@@ -168,6 +170,12 @@ class UserRepositoryImpl @Inject constructor(
             Result.failure(e)
         }
     }
+
+    override fun getAllUsersSortedByBirthdayInYear(): Flow<List<User>> =
+        userDao.getAllUsersSortedByBirthdayInYear()
+
+    override fun getAllUsersSortedByAge(): Flow<List<User>> =
+        userDao.getAllUsersSortedByAge()
 
     // Manual user creation
     override suspend fun createManualUser(

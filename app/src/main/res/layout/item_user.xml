@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+<!-- app/res/layout/item_user.xml -->
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -28,22 +30,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:src="@drawable/ic_person_placeholder_24" />
-
-        <!-- Manual User Indicator -->
-        <ImageView
-            android:id="@+id/imageViewManualIndicator"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:background="@drawable/circle_background_primary"
-            android:contentDescription="@string/manually_created_user"
-            android:padding="2dp"
-            android:scaleType="centerInside"
-            android:src="@drawable/ic_more_vert_24"
-            android:visibility="gone"
-            app:layout_constraintEnd_toEndOf="@+id/imageViewProfile"
-            app:layout_constraintTop_toTopOf="@+id/imageViewProfile"
-            app:tint="@android:color/white"
-            tools:visibility="visible" />
 
         <!-- User Name -->
         <TextView

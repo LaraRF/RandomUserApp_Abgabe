@@ -109,9 +109,11 @@ class SettingsFragment : Fragment() {
             showAboutDialog()
         }
 
-        binding.buttonRateApp.setOnClickListener {
-            openPlayStore()
+        // GitHub Button
+        binding.buttonViewOnGithub.setOnClickListener {
+            openGithubRepository()
         }
+
 
         binding.buttonShareApp.setOnClickListener {
             shareApp()
@@ -228,14 +230,18 @@ class SettingsFragment : Fragment() {
     }
 
     /**
-     * Change app language
+     * Change app language - Version 2
      */
     private fun changeLanguage(languageCode: String) {
         viewModel.setLanguage(languageCode)
-        LocaleHelper.setLocale(requireContext(), languageCode)
 
-        // Restart activity to apply language change
-        requireActivity().recreate()
+        // Apply locale change
+        val context = LocaleHelper.setLocale(requireContext(), languageCode)
+
+        // Update activity with new locale
+        requireActivity().finish()
+        requireActivity().startActivity(requireActivity().intent)
+        requireActivity().overridePendingTransition(0, 0)
     }
 
     /**
@@ -294,6 +300,19 @@ class SettingsFragment : Fragment() {
     private fun openPlayStore() {
         Toast.makeText(context, "Feature currently not available", Toast.LENGTH_SHORT).show()
     }
+
+    /**
+     * Open GitHub repository
+     */
+    private fun openGithubRepository() {
+        try {
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/LaraRF/RandomUserApp_Abgabe"))
+            startActivity(intent)
+        } catch (e: Exception) {
+            Toast.makeText(context, "Could not open GitHub repository", Toast.LENGTH_SHORT).show()
+        }
+    }
+
 
     /**
      * Share app with others

@@ -48,13 +48,8 @@ class UserAdapter(
                 textViewPhone.text = user.phone
                 textViewLocation.text = user.fullAddress
 
-                // Show manual creation indicator
-                if (user.isManuallyCreated) {
-                    imageViewManualIndicator.setImageResource(R.drawable.ic_more_vert_24)
-                    imageViewManualIndicator.visibility = android.view.View.VISIBLE
-                } else {
-                    imageViewManualIndicator.visibility = android.view.View.GONE
-                }
+                // Manual creation indicator - ENTFERNT
+                // if (user.isManuallyCreated) { ... }
 
                 // Load profile image with Glide
                 Glide.with(imageViewProfile.context)

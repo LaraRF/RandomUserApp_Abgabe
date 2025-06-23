@@ -189,10 +189,6 @@ class SecondFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.action_edit -> {
-                // TODO: Navigate to edit screen
-                true
-            }
             R.id.action_delete -> {
                 viewModel.deleteUser()
                 findNavController().navigateUp()

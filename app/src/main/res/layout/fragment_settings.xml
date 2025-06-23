@@ -346,13 +346,13 @@
                         app:icon="@drawable/ic_info_24" />
 
                     <Button
-                        android:id="@+id/buttonRateApp"
+                        android:id="@+id/buttonViewOnGithub"
                         style="?attr/materialButtonOutlinedStyle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:text="Rate on Play Store"
-                        app:icon="@drawable/ic_star_24" />
+                        android:text="@string/settings_view_on_github"
+                        app:icon="@drawable/ic_open_in_new_24" />
 
                     <Button
                         android:id="@+id/buttonShareApp"

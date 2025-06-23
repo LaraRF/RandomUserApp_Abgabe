@@ -212,4 +212,11 @@
     <string name="close">Close</string>
     <string name="share">Share</string>
 
+    <!-- Neue Sortierungsoptionen -->
+    <string name="action_sort_birthday_in_year">Sort by Birthday (in Year)</string>
+    <string name="action_sort_age">Sort by Age</string>
+
+    <!-- GitHub Button -->
+    <string name="settings_view_on_github">View on GitHub</string>
+
 </resources>

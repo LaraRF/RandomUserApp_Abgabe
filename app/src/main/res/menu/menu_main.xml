@@ -32,8 +32,13 @@
         app:showAsAction="never" />
 
     <item
-        android:id="@+id/action_sort_date_of_birth"
-        android:title="@string/action_sort_date_of_birth"
+        android:id="@+id/action_sort_birthday_in_year"
+        android:title="@string/action_sort_birthday_in_year"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_sort_age"
+        android:title="@string/action_sort_age"
         app:showAsAction="never" />
 
     <item

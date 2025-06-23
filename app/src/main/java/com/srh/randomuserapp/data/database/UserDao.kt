@@ -33,6 +33,43 @@ interface UserDao {
     fun getAllUsersSortedByDateOfBirth(): Flow<List<User>>
 
     /**
+     * Get all users sorted by birthday in year (1.1. to 31.12., ignoring year)
+     * @return Flow of user list sorted by birthday within year
+     */
+    @Query("""
+        SELECT * FROM users 
+        ORDER BY 
+            CASE 
+                WHEN substr(dateOfBirth, 1, 3) = 'Jan' THEN '01'
+                WHEN substr(dateOfBirth, 1, 3) = 'Feb' THEN '02'
+                WHEN substr(dateOfBirth, 1, 3) = 'Mar' THEN '03'
+                WHEN substr(dateOfBirth, 1, 3) = 'Apr' THEN '04'
+                WHEN substr(dateOfBirth, 1, 3) = 'May' THEN '05'
+                WHEN substr(dateOfBirth, 1, 3) = 'Jun' THEN '06'
+                WHEN substr(dateOfBirth, 1, 3) = 'Jul' THEN '07'
+                WHEN substr(dateOfBirth, 1, 3) = 'Aug' THEN '08'
+                WHEN substr(dateOfBirth, 1, 3) = 'Sep' THEN '09'
+                WHEN substr(dateOfBirth, 1, 3) = 'Oct' THEN '10'
+                WHEN substr(dateOfBirth, 1, 3) = 'Nov' THEN '11'
+                WHEN substr(dateOfBirth, 1, 3) = 'Dec' THEN '12'
+                ELSE '13'
+            END,
+            CAST(substr(dateOfBirth, 5, 2) AS INTEGER)
+    """)
+    fun getAllUsersSortedByBirthdayInYear(): Flow<List<User>>
+
+    /**
+     * Get all users sorted by age (youngest first)
+     * @return Flow of user list sorted by age
+     */
+    @Query("""
+        SELECT * FROM users 
+        ORDER BY 
+            CAST(substr(dateOfBirth, -4) AS INTEGER) DESC
+    """)
+    fun getAllUsersSortedByAge(): Flow<List<User>>
+
+    /**
      * Get all users sorted by creation date (newest first)
      * @return Flow of user list sorted by date
      */

@@ -26,7 +26,7 @@ class UserListViewModel @Inject constructor(
      * Enum for different sort orders
      */
     enum class SortOrder {
-        NAME, DATE_CREATED, EMAIL, COUNTRY, DATE_OF_BIRTH
+        NAME, DATE_CREATED, EMAIL, COUNTRY, BIRTHDAY_IN_YEAR, AGE
     }
 
     /**
@@ -69,8 +69,11 @@ class UserListViewModel @Inject constructor(
                     sortOrder == SortOrder.NAME -> {
                         userRepository.getAllUsersSortedByName().asLiveData()
                     }
-                    sortOrder == SortOrder.DATE_OF_BIRTH -> {
-                        userRepository.getAllUsersSortedByDateOfBirth().asLiveData()
+                    sortOrder == SortOrder.BIRTHDAY_IN_YEAR -> {
+                        userRepository.getAllUsersSortedByBirthdayInYear().asLiveData()
+                    }
+                    sortOrder == SortOrder.AGE -> {
+                        userRepository.getAllUsersSortedByAge().asLiveData()
                     }
                     else -> {
                         userRepository.getAllUsersSortedByDate().asLiveData()

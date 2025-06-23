@@ -181,4 +181,11 @@
     <string name="close">Schließen</string>
     <string name="share">Teilen</string>
 
+    <!-- Neue Sortierungsoptionen -->
+    <string name="action_sort_birthday_in_year">Nach Geburtstag (im Jahr) sortieren</string>
+    <string name="action_sort_age">Nach Alter sortieren</string>
+
+    <!-- GitHub Button -->
+    <string name="settings_view_on_github">Auf GitHub ansehen</string>
+
 </resources>
