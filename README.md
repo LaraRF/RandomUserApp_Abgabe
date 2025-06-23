@@ -31,7 +31,7 @@ Verwendete Patterns: MVVM, Repository Pattern, Dependency Injection
 - Internet-Verbindung: Für API-Calls und Dependency-Download
 ### Installation
 1.	Repository klonen:
-2.	git clone [https://github.com/your-username/RandomUserApp.git](https://github.com/LaraRF/RandomUserApp_Abgabe)
+2.	git clone [https://github.com/LaraRF/RandomUserApp_Abgabe.git](https://github.com/LaraRF/RandomUserApp_Abgabe)
 3.	cd RandomUserApp
 4.	Projekt in Android Studio öffnen:
    - Android Studio starten
