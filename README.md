@@ -19,37 +19,12 @@ Eine moderne Android-Anwendung für die Verwaltung von Benutzerdaten mit AR-Inte
 
 
 ## Architektur
-
-┌─────────────────────────────────────────────────────────┐
-│                        UI Layer                         │
-│  ┌─────────────┬─────────────┬─────────────┬──────────┐ │
-│  │FirstFragment│SecondFragment│CameraFragment│Settings │ │
-│  └─────────────┴─────────────┴─────────────┴──────────┘ │
-└─────────────────────────────────────────────────────────┘
-┌─────────────────────────────────────────────────────────┐
-│                     ViewModel Layer                     │
-│  ┌──────────────┬──────────────┬─────────────────────┐  │
-│  │UserListVM    │UserDetailVM  │SettingsVM          │  │
-│  └──────────────┴──────────────┴─────────────────────┘  │
-└─────────────────────────────────────────────────────────┘
-┌─────────────────────────────────────────────────────────┐
-│                   Repository Layer                      │
-│  ┌─────────────────────────────────────────────────────┐ │
-│  │            UserRepository (Interface)              │ │
-│  └─────────────────────────────────────────────────────┘ │
-└─────────────────────────────────────────────────────────┘
-┌─────────────────────────────────────────────────────────┐
-│                     Data Layer                          │
-│  ┌──────────────────┬─────────────────────────────────┐ │
-│  │Room Database     │RandomUser.me API (Retrofit)    │ │
-│  │(SQLite)          │                                 │ │
-│  └──────────────────┴─────────────────────────────────┘ │
-└─────────────────────────────────────────────────────────┘
+![grafik](https://github.com/user-attachments/assets/24f8a13f-135a-4bfd-8374-a16612d94c7c)
 
 Verwendete Patterns: MVVM, Repository Pattern, Dependency Injection
 
 ## Quick Start der App
-###Voraussetzungen
+### Voraussetzungen
 •	Android Studio: Arctic Fox (2020.3.1) oder neuer
 •	JDK: Version 11+
 •	Android SDK: Min API 26, Target API 34
@@ -59,15 +34,15 @@ Verwendete Patterns: MVVM, Repository Pattern, Dependency Injection
 2.	git clone https://github.com/your-username/RandomUserApp.git
 3.	cd RandomUserApp
 4.	Projekt in Android Studio öffnen:
-o	Android Studio starten
-o	"Open an Existing Project" wählen
-o	Projekt-Ordner auswählen
+   - Android Studio starten
+   - "Open an Existing Project" wählen
+   - Projekt-Ordner auswählen
 5.	Gradle Sync:
-o	Automatisch oder manuell: File > Sync Project with Gradle Files
-o	Alle Dependencies werden automatisch heruntergeladen
+  - Automatisch oder manuell: File > Sync Project with Gradle Files
+  - Alle Dependencies werden automatisch heruntergeladen
 6.	App ausführen:
-o	Gerät/Emulator verbinden
-o	Run-Button (▶️) klicken
+  - Gerät/Emulator verbinden
+  - Run-Button (▶️) klicken
 ### Erstmaliger Build
 ./gradlew clean
 ./gradlew build
@@ -90,28 +65,7 @@ Alle Versionen siehe app/build.gradle.kts
 
 ## Projekt-Struktur
 
-app/src/main/
-├── kotlin/com/srh/randomuserapp/
-│   ├── data/                 # Data Layer
-│   │   ├── api/             # API Services
-│   │   ├── database/        # Room Database
-│   │   ├── models/          # Data Models
-│   │   └── repository/      # Repository Implementation
-│   ├── di/                  # Dependency Injection Modules
-│   ├── ui/                  # UI Layer
-│   │   ├── adapters/        # RecyclerView Adapters
-│   │   ├── fragments/       # UI Fragments
-│   │   └── viewmodels/      # ViewModels
-│   ├── utils/               # Utility Classes
-│   ├── MainActivity.kt      # Main Activity
-│   └── RandomUserApplication.kt
-└── res/                     # Resources
-    ├── layout/              # XML Layouts
-    ├── values/              # Strings, Colors, Themes
-    ├── values-de/           # Deutsche Übersetzungen
-    ├── menu/                # Menu Resources
-    ├── navigation/          # Navigation Graph
-    └── drawable/            # Icons & Images
+![grafik](https://github.com/user-attachments/assets/353b0092-dcf8-4f05-ade7-bd1479bcae59)
 
 ## Code-Standards
 •	MVVM Architecture: Saubere Trennung der Verantwortlichkeiten
@@ -154,10 +108,11 @@ RandomUser.me API
 •	Base URL: https://randomuser.me/
 •	Endpoint: GET /api/
 •	Parameter: 
-o	results: Anzahl Benutzer (1-5000)
-o	format: json (default), xml, csv, yaml
-o	nat: Nationalität (us, gb, de, etc.)
-o	gender: male, female
+- results: Anzahl Benutzer (1-5000)
+- format: json (default), xml, csv, yaml
+- nat: Nationalität (us, gb, de, etc.)
+- gender: male, female
+
 Beispiel-Request:
 GET https://randomuser.me/api/?results=10&format=json&nat=de
 Kamera-Berechtigung:
