@@ -19,16 +19,20 @@
 
     <!-- AR Overlay -->
     <LinearLayout
-        android:id="@+id/ar_overlay"
-        android:layout_width="wrap_content"
+        android:id="@+id/arOverlay"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:background="@drawable/rounded_background"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/overlay_background"
         android:orientation="vertical"
-        android:padding="12dp"
+        android:padding="16dp"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackground">
 
         <TextView
             android:id="@+id/ar_user_name"

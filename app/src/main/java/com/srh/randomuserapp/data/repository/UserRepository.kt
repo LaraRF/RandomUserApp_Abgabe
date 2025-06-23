@@ -83,6 +83,12 @@ class UserRepositoryImpl @Inject constructor(
     override fun getAllUsersSortedByDateOfBirth(): Flow<List<User>> =
         userDao.getAllUsersSortedByDateOfBirth()
 
+    override fun getAllUsersSortedByBirthdayInYear(): Flow<List<User>> =
+        userDao.getAllUsersSortedByBirthdayInYear()
+
+    override fun getAllUsersSortedByAge(): Flow<List<User>> =
+        userDao.getAllUsersSortedByAge()
+
     override suspend fun getUserById(userId: String): User? = userDao.getUserById(userId)
 
     override suspend fun getUserByQrCode(qrCode: String): User? = userDao.getUserByQrCode(qrCode)
@@ -170,12 +176,6 @@ class UserRepositoryImpl @Inject constructor(
             Result.failure(e)
         }
     }
-
-    override fun getAllUsersSortedByBirthdayInYear(): Flow<List<User>> =
-        userDao.getAllUsersSortedByBirthdayInYear()
-
-    override fun getAllUsersSortedByAge(): Flow<List<User>> =
-        userDao.getAllUsersSortedByAge()
 
     // Manual user creation
     override suspend fun createManualUser(

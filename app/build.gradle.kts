@@ -100,4 +100,7 @@ dependencies {
     // Permissions für Kamera
     implementation ("androidx.activity:activity-ktx:1.8.0")
     implementation ("androidx.fragment:fragment-ktx:1.6.1")
+
+    // ML Kit für QR-Code Scanning
+    implementation("com.google.mlkit:barcode-scanning:17.2.0")
 }

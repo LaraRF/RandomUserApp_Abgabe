@@ -10,19 +10,25 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.camera.core.*
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import com.google.mlkit.vision.barcode.BarcodeScanning
+import com.google.mlkit.vision.common.InputImage
 import com.srh.randomuserapp.R
+import com.srh.randomuserapp.data.models.User
 import com.srh.randomuserapp.databinding.FragmentCameraBinding
-import com.srh.randomuserapp.ui.viewmodels.UserListViewModel
+import com.srh.randomuserapp.ui.viewmodels.CameraViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 
 /**
  * Fragment implementing camera functionality with AR overlay for user detection.
- * This demonstrates advanced camera features and potential AR integration.
+ * This demonstrates advanced camera features and QR code scanning for AR integration.
  */
 @AndroidEntryPoint
 class CameraFragment : Fragment() {
@@ -30,11 +36,14 @@ class CameraFragment : Fragment() {
     private var _binding: FragmentCameraBinding? = null
     private val binding get() = _binding!!
 
-    private val viewModel: UserListViewModel by viewModels()
+    private val viewModel: CameraViewModel by viewModels()
 
     private var imageCapture: ImageCapture? = null
+    private var imageAnalysis: ImageAnalysis? = null
     private var camera: Camera? = null
     private var cameraProvider: ProcessCameraProvider? = null
+    private var currentScannedUser: User? = null
+    private var isArVisible = false
 
     private lateinit var cameraExecutor: ExecutorService
 
@@ -85,9 +94,9 @@ class CameraFragment : Fragment() {
             toggleFlash()
         }
 
-        // AR overlay toggle
+        // AR overlay toggle - UPDATED
         binding.buttonArOverlay.setOnClickListener {
-            toggleArOverlay()
+            toggleArVisibility()
         }
 
         // Back button
@@ -97,6 +106,7 @@ class CameraFragment : Fragment() {
 
         // Initial UI state
         updateUIState()
+        hideUserOverlay() // Initial state: no overlay
     }
 
     private fun checkCameraPermission() {
@@ -146,24 +156,19 @@ class CameraFragment : Fragment() {
             .setCaptureMode(ImageCapture.CAPTURE_MODE_MINIMIZE_LATENCY)
             .build()
 
-        val imageAnalyzer = ImageAnalysis.Builder()
+        // QR Code Analysis - UPDATED
+        imageAnalysis = ImageAnalysis.Builder()
             .setBackpressureStrategy(ImageAnalysis.STRATEGY_KEEP_ONLY_LATEST)
             .build()
-            .also {
-                it.setAnalyzer(cameraExecutor) { imageProxy ->
-                    // Here you could implement AR user detection logic
-                    // For now, we'll just process frames for demonstration
-                    processImageForAR(imageProxy)
-                    imageProxy.close()
-                }
-            }
+
+        setupQRCodeAnalyzer()
 
         val cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
 
         try {
             cameraProvider.unbindAll()
             camera = cameraProvider.bindToLifecycle(
-                this, cameraSelector, preview, imageCapture, imageAnalyzer
+                this, cameraSelector, preview, imageCapture, imageAnalysis
             )
 
             updateUIState()
@@ -173,20 +178,105 @@ class CameraFragment : Fragment() {
         }
     }
 
-    private fun processImageForAR(imageProxy: ImageProxy) {
-        // Placeholder for AR processing logic
-        // In a real implementation, you might:
-        // 1. Detect faces in the image
-        // 2. Match faces with user database
-        // 3. Overlay user information on detected faces
-        // 4. Update AR overlay in real-time
+    /**
+     * Setup QR code analyzer - UPDATED für echte QR-Code Erkennung
+     */
+    private fun setupQRCodeAnalyzer() {
+        val qrCodeAnalyzer = ImageAnalysis.Analyzer { imageProxy ->
+            val mediaImage = imageProxy.image
+            if (mediaImage != null) {
+                val image = InputImage.fromMediaImage(mediaImage, imageProxy.imageInfo.rotationDegrees)
 
-        // For demonstration, we'll just simulate processing
-        if (binding.arOverlay.visibility == View.VISIBLE) {
-            requireActivity().runOnUiThread {
-                // Update AR overlay with mock data
-                updateArOverlay()
+                val scanner = BarcodeScanning.getClient()
+                scanner.process(image)
+                    .addOnSuccessListener { barcodes ->
+                        for (barcode in barcodes) {
+                            barcode.rawValue?.let { qrCodeData ->
+                                // QR-Code gefunden - User aus Datenbank laden
+                                loadUserFromQRCode(qrCodeData)
+                            }
+                        }
+
+                        // Wenn keine QR-Codes gefunden wurden, User zurücksetzen
+                        if (barcodes.isEmpty()) {
+                            currentScannedUser = null
+                            hideUserOverlay()
+                        }
+                    }
+                    .addOnFailureListener {
+                        // QR-Code Scanning fehlgeschlagen
+                        currentScannedUser = null
+                        hideUserOverlay()
+                    }
+                    .addOnCompleteListener {
+                        imageProxy.close()
+                    }
             }
+        }
+
+        imageAnalysis?.setAnalyzer(ContextCompat.getMainExecutor(requireContext()), qrCodeAnalyzer)
+    }
+
+    /**
+     * Lade User-Daten basierend auf QR-Code
+     */
+    private fun loadUserFromQRCode(qrCodeData: String) {
+        viewLifecycleOwner.lifecycleScope.launch {
+            try {
+                val user = viewModel.getUserByQrCode(qrCodeData)
+                if (user != null && user != currentScannedUser) {
+                    currentScannedUser = user
+                    showUserOverlay(user)
+                } else if (user == null && currentScannedUser != null) {
+                    currentScannedUser = null
+                    hideUserOverlay()
+                }
+            } catch (e: Exception) {
+                currentScannedUser = null
+                hideUserOverlay()
+            }
+        }
+    }
+
+    /**
+     * Zeige User-Overlay mit echten Daten
+     */
+    private fun showUserOverlay(user: User) {
+        if (!isArVisible) return
+
+        binding.apply {
+            // User-Daten setzen (angepasst an bestehende Layout-Namen)
+            arUserName.text = user.fullName
+            arUserEmail.text = user.email
+            arUserLocation.text = user.fullAddress
+
+            // Overlay anzeigen
+            arOverlay.isVisible = true
+
+            // Click-Listener für Navigation zum User-Detail
+            arOverlay.setOnClickListener {
+                navigateToUserDetail(user)
+            }
+        }
+    }
+
+    /**
+     * Verstecke User-Overlay
+     */
+    private fun hideUserOverlay() {
+        binding.arOverlay.isVisible = false
+        binding.arOverlay.setOnClickListener(null)
+    }
+
+    /**
+     * Navigiere zum User-Detail
+     */
+    private fun navigateToUserDetail(user: User) {
+        try {
+            val action = CameraFragmentDirections.actionCameraFragmentToSecondFragment(user.id)
+            findNavController().navigate(action)
+        } catch (e: Exception) {
+            Toast.makeText(context, "Could not open user details", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -226,24 +316,20 @@ class CameraFragment : Fragment() {
         }
     }
 
-    private fun toggleArOverlay() {
-        val isVisible = binding.arOverlay.visibility == View.VISIBLE
-        binding.arOverlay.visibility = if (isVisible) View.GONE else View.VISIBLE
-        binding.buttonArOverlay.text = if (isVisible) "Show AR" else "Hide AR"
+    /**
+     * Toggle AR visibility
+     */
+    private fun toggleArVisibility() {
+        isArVisible = !isArVisible
+        binding.apply {
+            buttonArOverlay.text = if (isArVisible) "Hide AR" else "Show AR"
 
-        if (!isVisible) {
-            updateArOverlay()
-        }
-    }
-
-    private fun updateArOverlay() {
-        // Simulate AR overlay with user data
-        viewModel.users.value?.let { users ->
-            if (users.isNotEmpty()) {
-                val randomUser = users.random()
-                binding.arUserName.text = "${randomUser.firstName} ${randomUser.lastName}"
-                binding.arUserEmail.text = randomUser.email
-                binding.arUserLocation.text = "${randomUser.city}, ${randomUser.country}"
+            // Wenn AR versteckt wird, auch das Overlay verstecken
+            if (!isArVisible) {
+                hideUserOverlay()
+            } else if (currentScannedUser != null) {
+                // Wenn AR wieder angezeigt wird und ein User gescannt ist, Overlay anzeigen
+                showUserOverlay(currentScannedUser!!)
             }
         }
     }
