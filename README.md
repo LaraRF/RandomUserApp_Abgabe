@@ -25,10 +25,10 @@ Verwendete Patterns: MVVM, Repository Pattern, Dependency Injection
 
 ## Quick Start der App
 ### Voraussetzungen
-•	Android Studio: Arctic Fox (2020.3.1) oder neuer
-•	JDK: Version 11+
-•	Android SDK: Min API 26, Target API 34
-•	Internet-Verbindung: Für API-Calls und Dependency-Download
+- Android Studio: Arctic Fox (2020.3.1) oder neuer
+- JDK: Version 11+
+- Android SDK: Min API 26, Target API 34
+- Internet-Verbindung: Für API-Calls und Dependency-Download
 ### Installation
 1.	Repository klonen:
 2.	git clone https://github.com/your-username/RandomUserApp.git
@@ -50,16 +50,16 @@ Verwendete Patterns: MVVM, Repository Pattern, Dependency Injection
 
 ## Abhängigkeiten
 Core
-•	AndroidX Core, AppCompat, Material Design 3
-•	ConstraintLayout, Navigation Component
+- AndroidX Core, AppCompat, Material Design 3
+- ConstraintLayout, Navigation Component
 Architecture
-•	ViewModel, LiveData, Room Database
-•	Hilt (Dependency Injection)
+- ViewModel, LiveData, Room Database
+- Hilt (Dependency Injection)
 Networking
-•	Retrofit 2, Gson, OkHttp
+- Retrofit 2, Gson, OkHttp
 Features
-•	CameraX, ZXing (QR-Codes), Glide (Image Loading)
-•	Kotlin Coroutines
+- CameraX, ZXing (QR-Codes), Glide (Image Loading)
+- Kotlin Coroutines
 Alle Versionen siehe app/build.gradle.kts
 
 
@@ -68,63 +68,63 @@ Alle Versionen siehe app/build.gradle.kts
 ![grafik](https://github.com/user-attachments/assets/353b0092-dcf8-4f05-ade7-bd1479bcae59)
 
 ## Code-Standards
-•	MVVM Architecture: Saubere Trennung der Verantwortlichkeiten
-•	Kotlin Coding Conventions: Offizielle Kotlin-Standards
-•	Material Design Guidelines: Konsistente UI/UX
-•	Single Responsibility Principle: Eine Aufgabe pro Klasse
+- MVVM Architecture: Saubere Trennung der Verantwortlichkeiten
+- Kotlin Coding Conventions: Offizielle Kotlin-Standards
+- Material Design Guidelines: Konsistente UI/UX
+- Single Responsibility Principle: Eine Aufgabe pro Klasse
 ## Build-Konfiguration
-•	Min SDK: 26 (Android 8.0)
-•	Target SDK: 34 (Android 14)
-•	Compile SDK: 34
-•	Java Compatibility: Version 1.8
-•	ViewBinding: Aktiviert für type-safe view access
+- Min SDK: 26 (Android 8.0)
+- Target SDK: 34 (Android 14)
+- Compile SDK: 34
+- Java Compatibility: Version 1.8
+- ViewBinding: Aktiviert für type-safe view access
 
 ## Verwendung
 1. Benutzer-Übersicht
-•	Liste aller Benutzer (API + manuell erstellt)
-•	Suche: Nach Name, E-Mail, Standort
-•	Sortierung: Name, Erstellungsdatum, Geburtsdatum
-•	Filter: Alle, nur API, nur manuell
+- Liste aller Benutzer (API + manuell erstellt)
+- Suche: Nach Name, E-Mail, Standort
+- Sortierung: Name, Erstellungsdatum, Geburtsdatum
+- Filter: Alle, nur API, nur manuell
 2. Benutzer-Details
-•	Vollständige Informationen: Foto, Name, Kontakt, Adresse
-•	QR-Code: Generierung und Sharing
-•	Bearbeitung: (TODO - in Entwicklung)
+- Vollständige Informationen: Foto, Name, Kontakt, Adresse
+- QR-Code: Generierung und Sharing
+- Bearbeitung: (TODO - in Entwicklung)
 3. Manuelle Benutzer-Erstellung
-•	Pflichtfelder: Vorname, Nachname, E-Mail
-•	Optionale Felder: Telefon, Geburtsdatum, Adresse, Geschlecht
-•	Validierung: E-Mail-Format, Pflichtfeld-Prüfung
+- Pflichtfelder: Vorname, Nachname, E-Mail
+- Optionale Felder: Telefon, Geburtsdatum, Adresse, Geschlecht
+- Validierung: E-Mail-Format, Pflichtfeld-Prüfung
 4. AR/Kamera-Modus
-•	QR-Code-Scanning: Live-Erkennung in Kameraansicht
-•	AR-Overlay: Benutzer-Informationen über QR-Code
-•	Navigation: Direkter Zugang zur Detailansicht
+- QR-Code-Scanning: Live-Erkennung in Kameraansicht
+- AR-Overlay: Benutzer-Informationen über QR-Code
+- Navigation: Direkter Zugang zur Detailansicht
 5. Einstellungen
-•	Datenbank-Management: Befüllen, Leeren, Statistiken
-•	App-Präferenzen: Theme, Sprache
-•	Daten-Export: (TODO - in Entwicklung)
+- Datenbank-Management: Befüllen, Leeren, Statistiken
+- App-Präferenzen: Theme, Sprache
+- Daten-Export: (TODO - in Entwicklung)
 
 
 ## API-Dokumentation
 RandomUser.me API
-•	Base URL: https://randomuser.me/
-•	Endpoint: GET /api/
-•	Parameter: 
-- results: Anzahl Benutzer (1-5000)
-- format: json (default), xml, csv, yaml
-- nat: Nationalität (us, gb, de, etc.)
-- gender: male, female
+- Base URL: https://randomuser.me/
+- Endpoint: GET /api/
+- Parameter: 
+   - results: Anzahl Benutzer (1-5000)
+   - format: json (default), xml, csv, yaml
+   - nat: Nationalität (us, gb, de, etc.)
+   - gender: male, female
 
 Beispiel-Request:
 GET https://randomuser.me/api/?results=10&format=json&nat=de
 Kamera-Berechtigung:
-•	Automatische Anfrage beim ersten Aufruf
-•	Manuell: Einstellungen > Apps > RandomUserApp > Berechtigungen
+- Automatische Anfrage beim ersten Aufruf
+- Manuell: Einstellungen > Apps > RandomUserApp > Berechtigungen
 
 
 ## Lizenz
 Dieses Projekt wurde für Bildungszwecke an der SRH Hochschule Heidelberg entwickelt.
 Verwendete Open-Source-Bibliotheken:
-•	Alle verwendeten Libraries unterliegen ihren jeweiligen Open-Source-Lizenzen
-•	Siehe app/build.gradle.kts für vollständige Liste
+- Alle verwendeten Libraries unterliegen ihren jeweiligen Open-Source-Lizenzen
+- Siehe app/build.gradle.kts für vollständige Liste
 
 Kurs: VR, AR & Mobile Development
 Hochschule: SRH Hochschule Heidelberg
@@ -132,10 +132,10 @@ Semester: Sommersemester 2025, 4. Fachsemester
 Dozent: Prof. Dr. Andreas Jäger, Felix Dörschner
 
 ## Links
-•	RandomUser.me API: https://randomuser.me/
-•	Android Developer Docs: https://developer.android.com/
-•	Material Design: https://material.io/
-•	Kotlin Documentation: https://kotlinlang.org/docs/
+- RandomUser.me API: https://randomuser.me/
+- Android Developer Docs: https://developer.android.com/
+- Material Design: https://material.io/
+- Kotlin Documentation: https://kotlinlang.org/docs/
 
 Version: 1.0.0
 Letzte Aktualisierung: 23.Juni 2025
